@@ -202,3 +202,10 @@ body
 {
     opacity: 1;
 }
+.card h1
+{
+    font-size: 1em;
+    color: #ff00aa;
+    line-height: 1.2em;
+    font-weight: 600;
+}
