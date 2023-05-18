@@ -1,211 +1,100 @@
-@import url('https://fonts.googleapis.com/css? family=Poppins:100,200,300,400,500,600,700,800,900');
-*
-{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Bodoni Moda', serif;
 }
-
-body
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #333;
+body{
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(bday.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.card
-{
-    position: relative;
-    width: 350px;
-    height: 190px;
-    background: #fff;
-    transition: 0.5s;
+.container{
+    perspective: 1000px;
 }
-.card:hover
-{
-    height: 450px;
-}
-.card .lines
-{
+.card{
+    width: 280px;
+    height: 360px;
     position: absolute;
-    inset: 0;
-    background: #000;
-    overflow: hidden;
+    top: 100px;
+    left: 230px;
+    transition: 2s;
+    transform-style: preserve-3d;
 }
-.card .lines::before
-{
-    content: '';
+.card:hover{
+    transform: rotateY(180deg);
+}
+.block{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 120px;
-    background: linear-gradient(transparent,#4f0,#7f0,#4f0,transparent);
-    animation: animate 4s linear infinite;
+    top:200px;
+    right: 600px;
+    perspective: 800px;
 }
-@keyframes animate
-{
-    0%
-    {
-        transform: translate(-50%,-50%) rotate(0deg);
-    }
-    100%
-    {
-        transform: translate(-50%,-50%) rotate(360deg);
-    }
-}
-.card .lines::after
-{
-    content:  '';
-    position: absolute;
-    inset: 3px;
-    background: #333030;
-}
-.card .img8x
-{
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translate(-50%);
-    width: 150px;
-    height: 150px;
-    background: #000;
-    transition: 0.5s;
-    z-index: 10;
-    overflow: hidden;
-}
-.card:hover .img8x
-{
-    width: 250px;
-    height: 250px;
-}
-.card .img8x::before
-{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    height: 150px;
-    transform: translate(-50%,-50%);
-    background: linear-gradient(transparent,#ff00aa,#ff00c8,#ff00aa,transparent);
-    animation: animate2 6s linear infinite;
-}
-@keyframes animate2
-{
-    0%
-    {
-        transform: translate(-50%,-50%) rotate(360deg);
-    }
-    100%
-    {
-        transform: translate(-50%,-50%) rotate(0deg);
-    }
-}
-.card .img8x::after
-{
-    content: '';
-    position: absolute;
-    inset: 3px;
-    background: #000;
-}
-.card .img8x img
-{
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1;
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
-    filter: grayscale(0);
-}
-.card .content
-{
-    position: absolute;
+.outside,.inside{
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    overflow: hidden;
-}
-.card .content .details
-{
-    padding: 40px;
+    border-radius: 20px;
     text-align: center;
-    width: 100%;
-    transition: 0.5s;
-    transform: translateY(145px);
+    padding: 1.5rem;
 }
-.card:hover .content .details
-{
-    transform: translateY(0px);
+.outside{
+    background-color: blanchedalmond;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+    position: absolute;
+    backface-visibility: hidden;
 }
-.card .content .details h2
-{
-    font-size: 1.25em;
-    font-weight: 500;
-    color: #45f3ff;
-    line-height: 1.2em;
+.outside h1{
+    font-size: 3rem;
+    font-weight: bold;
+    color: salmon;
+    margin-bottom: 30px;
 }
-.card .content .details h2 span
-{
-    font-size: 0.75em;
-    font-weight: 500;
-    color: #fff;
+.inside{
+    background-color: rgb(255, 244, 79);
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+    transform: rotateY(180deg);
 }
-.card .content .details .data
-{
+.inside h3{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.frames{
+    width: 400px;
+    height: 150px;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5);
     display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0.8rem;
+
+    transform: rotateY(-230deg) rotateX(20deg);
+    position: absolute;
 }
-.card .content .details .data h3
-{
-    font-size: 1em;
-    color: #ff00aa;
-    line-height: 1.2em;
-    font-weight: 600;
+.frames img{
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
 }
-.card .content .details .data h3 span
-{
-    font-size: 0.85em;
-    font-weight: 400;
-    color: #fff;
+.frames p{
+   font-size: 20px;
+   font-weight: bold;
+   transform: rotateY(180deg);
 }
-.card .content .details .actionBtn
+.frames:nth-child(1)
 {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    top:-110px;
+    z-index: -1;
+    background-color: coral;
 }
-.card .content .details .actionBtn button
-{
-    padding: 10px 30px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    font-size: 1em;
-    font-weight: 500;
-    background: #45f3ff;
-    color: #000;
-    cursor: pointer;
-    opacity: 0.9;
+.frames:nth-child(2){
+    background-color: goldenrod;
 }
-.card .content .details .actionBtn button:nth-child(2)
+.frames:nth-child(3)
 {
-    background: #fff;
-}
-.card .content .details .actionBtn button:hover
-{
-    opacity: 1;
-}
-.card h1
-{
-    font-size: 1em;
-    color: #ff00aa;
-    line-height: 1.2em;
-    font-weight: 600;
+    top:100px;
+    background-color: burlywood;
 }
