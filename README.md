@@ -1,1 +1,0 @@
-# EijiroAkira.github.io
